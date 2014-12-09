@@ -1,0 +1,3 @@
+name = Render arrays examples
+description = Demo module with some render array usage examples.
+core = 7.x

@@ -1,0 +1,18 @@
+<?php
+
+/**
+ *  Implements hook_menu().
+ */
+function render_examples_menu() {
+  $items = array();
+
+  $items['render-examples/example1'] = array(
+    'title' => 'Demo page 1',
+    'page callback' => 'render_examples_example1',
+    'file' => 'render_examples.pages.inc',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
