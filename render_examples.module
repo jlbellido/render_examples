@@ -16,3 +16,22 @@ function render_examples_menu() {
   return $items;
 }
 
+
+/**
+ *  Implements hook_theme().
+ */
+function render_examples_theme($existing, $type, $theme, $path) {
+  $themes = array();
+
+  $themes['user_achievements'] = array(
+    'path' => drupal_get_path('module', 'render_examples') . '/templates',
+    'template' => 'user-achievements',
+    'variables' => array(
+      'points' => '',
+      'score' => '',
+    ),
+  );
+
+  return $themes;
+}
+
