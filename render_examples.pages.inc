@@ -6,18 +6,27 @@
 function render_examples_example1() {
   global $user;
 
-  $output  = '<div class="logged-user-info">';
-  // User picture:
-  $output .= theme('user_picture', array('account' => $user));
-  // User roles:
-  $output .= theme('item_list', array('items' => $user->roles));
-  // User achievements:
-  $output .= theme('user_achievements', array('points' => 4,'score' => 16));
-  $output .= '</div>';
+  $render = array(
+    'user-picture' => array(
+      '#theme' => 'user_picture',
+      '#account' => $user,
+    ),
+    'item-list' => array(
+      '#theme' => 'item_list',
+      '#items' => $user->roles,
+    ),
+    'user-achievements' => array(
+      '#theme' => 'user_achievements',
+      '#points' => 4,
+      '#score' => 16,
+      '#attached' => array(
+        'js' => array(drupal_get_path('module', 'render_examples') . '/js/user_achievements.js'),
+        'css' => array(drupal_get_path('module', 'render_examples') . '/css/user_achievements.css'),
+      ),
+    ),
+    '#attributes' => array('class' => array('logged-user-info')),
+    '#theme_wrappers' => array('container'),
+  );
 
-  // Add custom css & js:
-  drupal_add_js(drupal_get_path('module', 'render_examples') . '/js/user_achievements.js');
-  drupal_add_css(drupal_get_path('module', 'render_examples') . '/css/user_achievements.css');
-
-  return $output;
+  return $render;
 }

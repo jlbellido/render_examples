@@ -34,4 +34,3 @@ function render_examples_theme($existing, $type, $theme, $path) {
 
   return $themes;
 }
-
