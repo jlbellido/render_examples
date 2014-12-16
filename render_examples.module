@@ -32,5 +32,10 @@ function render_examples_theme($existing, $type, $theme, $path) {
     ),
   );
 
+  $themes['render_add_span'] = array(
+    'file' => 'render_examples.theme.inc',
+    'render element' => 'element',
+  );
+
   return $themes;
 }

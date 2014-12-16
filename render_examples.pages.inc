@@ -25,7 +25,7 @@ function render_examples_example1() {
       ),
     ),
     '#attributes' => array('class' => array('logged-user-info')),
-    '#theme_wrappers' => array('container'),
+    '#theme_wrappers' => array('container', 'render_add_span'),
   );
 
   return $render;
