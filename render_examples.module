@@ -39,3 +39,24 @@ function render_examples_theme($existing, $type, $theme, $path) {
 
   return $themes;
 }
+
+/**
+ * Custom pre_render callback for caching example.
+ * @param $element
+ * @return mixed
+ */
+function render_element_cached_pre_render($element) {
+  $element['#markup'] = render_elements_expensive();
+  $element['#children'] = $element['#markup'];
+  return $element;
+}
+
+/**
+ * Custom function that retrieve a string after a while.
+ * @see render_element_cached_pre_render
+ * @return string
+ */
+function render_elements_expensive() {
+  sleep(5);
+  return t('Have you waited a lot? Sorry, it won\'t happen for 10 seconds');
+}

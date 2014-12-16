@@ -24,6 +24,16 @@ function render_examples_example1() {
         'css' => array(drupal_get_path('module', 'render_examples') . '/css/user_achievements.css'),
       ),
     ),
+    'element_cached' => array(
+      '#markup' => '',
+      '#pre_render' => array('render_element_cached_pre_render'),
+      '#cache' => array(
+        'keys' => array('render_examples', 'cache-element'),
+        'bin' => 'cache',
+        'expire' => time() + 10,
+        'granularity' => DRUPAL_CACHE_PER_PAGE | DRUPAL_CACHE_PER_USER,
+      ),
+    ),
     '#attributes' => array('class' => array('logged-user-info')),
     '#theme_wrappers' => array('container', 'render_add_span'),
   );
