@@ -1,0 +1,12 @@
+.user-achievements{
+    padding: 2%;
+    width: 20%;
+    background-color: #68696b;
+}
+.user-points, .highlighted-achievement{
+    display: block;
+}
+.see-points{
+    cursor: pointer;
+    background-color: #ff807f;
+}
